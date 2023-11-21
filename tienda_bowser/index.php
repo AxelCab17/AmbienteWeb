@@ -1,3 +1,8 @@
+<?php
+include("funciones.php");
+$menu = getMenu();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -15,13 +20,10 @@
                 <img src="https://cdn.discordapp.com/attachments/1165381757655318588/1165405392671612969/3bW7WPi.png?ex=6546bb59&is=65344659&hm=ac23a5d55495c86e72cfb26cde8d26778547d6d94563612029d304492f5109c9&" class="logo"
                     alt="Tienda Bowser">
                 </div>
-                    <ul class="menu">
-                    <li><a>Inicio</a></li>
-                    <li><a>Juegos</a></li>
-                    <li><a>Categorias</a></li>
-                    <li><a>Consolas</a></li>
-                    <li><a>Accesorios</a></li>
-                    <li><a>Ingresar</a></li>
+                <ul class="menu">
+                    <?php foreach ($menu as $item) { ?>
+                        <li><a href="<?php echo $item["url"] ?>"><?php echo $item["name"] ?></a></li>
+                    <?php } ?>
                 </ul>
         </nav>
         <section class="juego">

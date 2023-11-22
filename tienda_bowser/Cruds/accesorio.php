@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../sql/conexion.php';
 
 function agregarAccesorio($id_categoria, $nombre, $precio, $existencias, $ruta_imagen, $activo) {
     $conexion = Conecta();

@@ -1,6 +1,5 @@
 <?php
-include 'conexion.php';
-
+include '../sql/conexion.php';
 function agregarCategoria($descripcion, $ruta_imagen, $activo) {
     $conexion = Conecta();
     $query = "INSERT INTO categoria (descripcion, ruta_imagen, activo) VALUES ('$descripcion', '$ruta_imagen', $activo)";

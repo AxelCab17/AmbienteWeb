@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Accesorios</title>
+</head>
+<body>
+    <h2>CRUD Accesorios</h2>
+
+    <!-- Formulario para agregar un accesorio -->
+    <form action=" agregarAccesorio.php" method="post">
+        <h3>Agregar Accesorio</h3>
+        <label for="id_categoria">ID Categoría:</label>
+        <input type="number" id="id_categoria" name="id_categoria" required>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" required>
+
+        <label for="existencias">Existencias:</label>
+        <input type="number" id="existencias" name="existencias" required>
+
+        <label for="ruta_imagen">URL Imagen:</label>
+        <input type="text" id="ruta_imagen" name="ruta_imagen">
+
+        <label for="activo">Activo:</label>
+        <input type="checkbox" id="activo" name="activo" value="1">
+
+        <button type="submit">Agregar Accesorio</button>
+    </form>
+
+    <hr>
+
+    <h3>Lista de Accesorios</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Categoría</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Existencias</th>
+            <th>Imagen</th>
+            <th>Activo</th>
+            <th>Acciones</th>
+        </tr>
+       
+    </table>
+</body>
+</html>

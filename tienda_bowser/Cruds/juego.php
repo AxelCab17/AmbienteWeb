@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../sql/conexion.php';
 
 function agregarJuego($id_categoria, $nombre, $consola, $precio, $existencias, $ruta_imagen, $activo) {
     $conexion = Conecta();

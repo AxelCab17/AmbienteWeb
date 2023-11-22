@@ -1,5 +1,22 @@
 <?php
-include 'conexion.php';
+include '../sql/conexion.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // Llamar a la función de inicio de sesión
+    $loginResult = login($username, $password);
+
+    if ($loginResult) {
+        // Inicio de sesión exitoso
+        // Redirigir a la página de inicio o realizar acciones según el rol
+        echo "Inicio de sesión exitoso. Roles: " . implode(', ', $loginResult['roles']);
+    } else {
+        // Usuario o contraseña incorrectos
+        echo "Usuario o contraseña incorrectos. Inténtalo de nuevo.";
+    }
+}
 
 function login($username, $password) {
     $conexion = Conecta();
@@ -35,14 +52,4 @@ function obtenerRolesUsuario($id_usuario) {
     Desconecta($conexion);
     return $roles;
 }
-
-// Uso de las funciones
-// $loginResult = login('usuario', 'contrasena');
-// if ($loginResult) {
-//     $usuario = $loginResult['usuario'];
-//     $roles = $loginResult['roles'];
-//     // Realizar acciones según el login y roles
-// } else {
-//     // Usuario o contraseña incorrectos
-// }
 ?>

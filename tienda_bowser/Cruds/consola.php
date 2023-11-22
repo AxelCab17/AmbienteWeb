@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../sql/conexion.php';
 
 function agregarConsola($nombre, $id_categoria, $precio, $existencias, $ruta_imagen, $activo) {
     $conexion = Conecta();

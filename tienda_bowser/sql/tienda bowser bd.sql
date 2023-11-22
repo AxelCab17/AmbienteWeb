@@ -1,7 +1,3 @@
-drop schema if exists tiendabowser;
-drop user if exists usuario;
-CREATE SCHEMA  tiendabowser;
-
 -- Elimina la base de datos si existe
 DROP SCHEMA IF EXISTS tiendabowser;
 
@@ -73,27 +69,6 @@ CREATE TABLE tiendabowser.usuario (
   PRIMARY KEY (id_usuario)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
 
-CREATE TABLE tiendabowser.factura (
-  id_factura INT NOT NULL AUTO_INCREMENT,
-  id_usuario INT NOT NULL,
-  fecha DATE,
-  total DOUBLE,
-  estado INT,
-  PRIMARY KEY (id_factura),
-  FOREIGN KEY (id_usuario) REFERENCES tiendabowser.usuario(id_usuario)
-) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
-
-CREATE TABLE tiendabowser.venta (
-  id_venta INT NOT NULL AUTO_INCREMENT,
-  id_factura INT NOT NULL,
-  id_juego INT NOT NULL,
-  precio DOUBLE,
-  cantidad INT,
-  PRIMARY KEY (id_venta),
-  FOREIGN KEY (id_factura) REFERENCES tiendabowser.factura(id_factura),
-  FOREIGN KEY (id_juego) REFERENCES tiendabowser.juego(id_juego)
-) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
-
 CREATE TABLE tiendabowser.rol (
   id_rol INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(20),
@@ -115,7 +90,7 @@ INSERT INTO tiendabowser.categoria (id_categoria, descripcion, ruta_imagen, acti
 (4, 'Carreras', 'https://hardzone.es/app/uploads-hardzone.es/2023/02/juegos-coches.jpg', false),
 (5, 'PS5', 'https://www.intelec.co.cr/image/cache/catalog/catalogo/Juegos/CFI-1015B-800x800.jpg' , true),
 (6, 'PS4' , 'https://m.media-amazon.com/images/I/71XY2MwEvlL.jpg' , true),
-(7, 'NSwitch' , 'https://www.ubuy.cr/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNjEtUGJsWW50c0wuX0FDX1NMMTUwMF8uanBn.jpg' , true),
+(7, 'NSwitch' , 'https://www.ubuy.cr/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNjEtUGJsWW50c0LuX0FDX1NMMTUwMF8uanBn.jpg' , true),
 (8, 'Xbox' , 'https://www.intelec.co.cr/image/cache/catalog/catalogo/Juegos/RRT-00001-800x800h.jpg' , true);
 
 INSERT INTO tiendabowser.juego (id_juego, id_categoria, nombre, consola, precio, existencias, ruta_imagen, activo) VALUES
@@ -139,8 +114,7 @@ INSERT INTO tiendabowser.consola (id_consola, nombre, id_categoria, precio, exis
 (3, 'Nintendo Switch', 3, 350000, 4, 'https://www.ubuy.cr/productimg/?image=aHR0cHM6Ly9tLm1lZglhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNjEtUGJsWW50c0LuX0FDX1NMMTUwMF8uanBn.jpg', true),
 (4, 'PS5', 4, 500000, 2, 'https://www.intelec.co.cr/image/cache/catalog/catalogo/Juegos/CFI-1015B-800x800.jpg', true);
 
-
-
+-- Inserta los datos
 INSERT INTO tiendabowser.factura (id_factura, id_usuario, fecha, total, estado) VALUES
 (1, 1, '2022-01-05', 211560, 2),
 (2, 2, '2022-01-07', 554340, 2),
@@ -166,4 +140,4 @@ INSERT INTO tiendabowser.rol (id_rol, nombre, id_usuario) VALUES
 (3, 'ROLE_USER', 1),
 (4, 'ROLE_VENDEDOR', 2),
 (5, 'ROLE_USER', 2),
-(6, 'ROLE_USER', 3)
+(6, 'ROLE_USER', 3);

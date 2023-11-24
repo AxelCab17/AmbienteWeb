@@ -1,13 +1,21 @@
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "RegistroUsuario/procesar_registro.php";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
+<head th:fragment="head">
+    <title>Tienda Bowser</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
     <h2>Registrarse</h2>
-    <form action="procesar_registro.php" method="post">
+    <form action="" method="post">
         <label for="username">Nombre de Usuario:</label>
         <input type="text" id="username" name="username" required>
         

@@ -11,49 +11,35 @@ GRANT ALL PRIVILEGES ON tiendabowser.* TO 'usuario'@'%';
 FLUSH PRIVILEGES;
 
 -- Define las tablas
-CREATE TABLE tiendabowser.categoria (
-  id_categoria INT NOT NULL AUTO_INCREMENT,
-  descripcion VARCHAR(30) NOT NULL,
-  ruta_imagen VARCHAR(1024),
-  activo BOOLEAN,
-  PRIMARY KEY (id_categoria)
-) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
-
 CREATE TABLE tiendabowser.juego (
   id_juego INT NOT NULL AUTO_INCREMENT,
-  id_categoria INT NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   consola VARCHAR(1600) NOT NULL,
   precio DOUBLE,
   existencias INT,
   ruta_imagen VARCHAR(1024),
   activo BOOLEAN,
-  PRIMARY KEY (id_juego),
-  FOREIGN KEY (id_categoria) REFERENCES tiendabowser.categoria(id_categoria)
+  PRIMARY KEY (id_juego)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
 
 CREATE TABLE tiendabowser.accesorio (
   id_accesorio INT NOT NULL AUTO_INCREMENT,
-  id_categoria INT NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   precio DOUBLE,
   existencias INT,
   ruta_imagen VARCHAR(1024),
   activo BOOLEAN,
-  PRIMARY KEY (id_accesorio),
-  FOREIGN KEY (id_categoria) REFERENCES tiendabowser.categoria(id_categoria)
+  PRIMARY KEY (id_accesorio)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
 
 CREATE TABLE tiendabowser.consola (
   id_consola INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(30) NOT NULL,
-  id_categoria INT NOT NULL,
   precio DOUBLE,
   existencias INT,
   ruta_imagen VARCHAR(1024),
   activo BOOLEAN,
-  PRIMARY KEY (id_consola),
-  FOREIGN KEY (id_categoria) REFERENCES tiendabowser.categoria(id_categoria)
+  PRIMARY KEY (id_consola)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
 
 CREATE TABLE tiendabowser.usuario (

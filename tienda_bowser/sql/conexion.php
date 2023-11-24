@@ -1,4 +1,5 @@
 <?php
+if (!function_exists('Conecta')) {
 
 function Conecta()
 {
@@ -25,4 +26,6 @@ function Desconecta($conexion)
 {
     
     mysqli_close($conexion);
+}
+
 }

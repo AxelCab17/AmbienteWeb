@@ -1,5 +1,5 @@
 <?php
-include '../sql/conexion.php';
+include 'sql/conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -15,8 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($registroResult) {
         // Registro exitoso
-        // Redirigir a la página de inicio de sesión u otra página
-        echo "Registro exitoso. Ahora puedes iniciar sesión.";
+        // Agregar script de JavaScript para redirigir al inicio de sesión
+        echo '<script>';
+        echo 'alert("Registro exitoso. Ahora puedes iniciar sesión.");';
+        echo 'window.location.href = "login.php";'; // Cambia "/ruta/a/tu/iniciar_sesion.php" por la ruta correcta
+        echo '</script>';
     } else {
         // Error en el registro
         echo "Error en el registro. Inténtalo de nuevo.";

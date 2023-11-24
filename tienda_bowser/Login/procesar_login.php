@@ -1,5 +1,5 @@
 <?php
-include '../sql/conexion.php';
+include 'sql/conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -12,6 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Inicio de sesión exitoso
         // Redirigir a la página de inicio o realizar acciones según el rol
         echo "Inicio de sesión exitoso. Roles: " . implode(', ', $loginResult['roles']);
+
+        // Agregar script de JavaScript para redirigir y mostrar mensaje
+        echo '<script>';
+        echo 'alert("Inicio de sesión exitoso. Serás redirigido al menú principal.");';
+        echo 'window.location.href = "index.php";'; // Cambia "/ruta/a/tu/menu_principal.php" por la ruta correcta
+        echo '</script>';
     } else {
         // Usuario o contraseña incorrectos
         echo "Usuario o contraseña incorrectos. Inténtalo de nuevo.";
@@ -53,3 +59,4 @@ function obtenerRolesUsuario($id_usuario) {
     return $roles;
 }
 ?>
+

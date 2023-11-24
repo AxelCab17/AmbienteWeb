@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="ruta_imagen">URL Imagen:</label>
         <input type="text" id="ruta_imagen" name="ruta_imagen">
 
-        <button type="submit" name="agregar">Agregar Juego</button>
+        <button class="botonCrud" type="submit" name="agregar">Agregar Juego</button>
     </form>
 
     <!-- Lista de Juegos -->

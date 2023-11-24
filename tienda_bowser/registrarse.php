@@ -14,6 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 <body>
+<header th:fragment="header" class="header">
+        <nav>
+            <div class="logo">
+                <img src="https://cdn.discordapp.com/attachments/1165381757655318588/1165405392671612969/3bW7WPi.png?ex=6546bb59&is=65344659&hm=ac23a5d55495c86e72cfb26cde8d26778547d6d94563612029d304492f5109c9&" class="logo"
+                    alt="Tienda Bowser">
+                </div>
+        </nav>
     <h2>Registrarse</h2>
     <form action="" method="post">
         <label for="username">Nombre de Usuario:</label>
@@ -40,4 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Registrarse</button>
     </form>
 </body>
+<footer>
+        <div class="container">
+            <div class="col">
+                <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 </html>

@@ -27,6 +27,7 @@ $menu = getMenu();
                 </ul>
         </nav>
     </header>
+    </header>
     <footer>
         <div class="container">
             <div class="col">
@@ -34,7 +35,6 @@ $menu = getMenu();
             </div>
         </div>
     </footer>
-    </header>
 </body>
 
 </html>

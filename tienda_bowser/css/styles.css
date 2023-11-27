@@ -87,9 +87,15 @@ body{
     font-size: calc(16px + 1vw);
 }
 
+button {
+    background-color: rgb(148, 148, 148);
+    color: red;
+}
+
 
 @media screen and (min-width: 100px) and (max-width: 3080px) {
     body{
         font-size: 12px;
     }
 }
+

@@ -19,10 +19,7 @@ function mensajeBienvenida() {
     alert('Bienvenido to Tienda Bowser!');
 }
 
-function cambiarFooter() {
-    const footer = document.querySelector('footer p');
-    footer.textContent = '© Tienda Bowser, All rights reserved. Está actualmente en el index.';
-}
+
 
 function clickImagen() {
     const images = document.querySelectorAll('.juego-item img');

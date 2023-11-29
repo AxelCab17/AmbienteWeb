@@ -88,23 +88,27 @@ $menu = getMenu();
         <div class="juego-grid">
             <div class="juego-item">
                 <img src="./images/smm2.png">
-                <h3>Super Mario Maker 2</h3>
-                <p>Nintendo Switch</p>
+                <h3 class="colorletra">Super Mario Maker 2</h3>
+                <p class="colorletra">Nintendo Switch</p>
             </div>
             <div class="juego-item">
                 <img src="./images/ps5 control.png">
-                <h3>Control para PS5</h3>
-                <p>PlayStation 5</p>
+                <h3 class="colorletra">Control para PS5</h3>
+                <p class="colorletra">PlayStation 5</p>
             </div>
             <div class="juego-item">
                 <img src="./images/p5.png">
-                <h3>Persona 5</h3>
-                <p>PlayStation 4</p>
+                <h3 class="colorletra">Persona 5</h3>
+                <p class="colorletra">PlayStation 4</p>
             </div>
         </div>
     </section>
     <footer>
-        <p>&COPY Tienda Bowser, Todos los derechos reservados.</p>
+    <div class="container">
+            <div class="col">
+                <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
     <script>
         modoOscuro();
@@ -112,8 +116,6 @@ $menu = getMenu();
         scrollSmooth();
 
         mensajeBienvenida();
-
-        cambiarFooter();
 
         clickImagen();
 

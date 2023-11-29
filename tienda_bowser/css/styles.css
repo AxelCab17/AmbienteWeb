@@ -71,10 +71,14 @@ footer {
 }
 
 .juego-item {
-    background-color: #e93838;
+    background-color: black;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(236, 8, 8, 0.2);
+    box-shadow: 0px 4px 8px rgba(236, 8, 8, 0.2) !important;
+}
+
+.colorletra{
+    color: white;
 }
 
 .juego-item img {

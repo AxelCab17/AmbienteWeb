@@ -66,6 +66,7 @@ $menu = getMenu();
         </ul>
     </div>
 </nav>
+
     </header>
     <footer>
         <div class="container">

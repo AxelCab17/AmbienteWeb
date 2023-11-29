@@ -4,18 +4,18 @@ $menu = getMenu();
 ?>
 <!DOCTYPE html>
 <html>
-
-<head th:fragment="head">
+<head>
     <title>Tienda Bowser</title>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>   
 </head>
 
-<body class="body">
+<body>
     <header th:fragment="header" class="header">
     <nav class="navbar navbar-expand-lg navbar-danger bg-dark">
     <a class="logo navbar-brand" href="#">
@@ -67,7 +67,7 @@ $menu = getMenu();
         </ul>
     </div>
 </nav>
-
+</header>
         <section class="juego">
             <h2>Nuestros juegos</h2>
             <div class="juego-grid">
@@ -88,13 +88,8 @@ $menu = getMenu();
                 </div>
             </div>
         </section>
-    </header>
     <footer>
-        <div class="container">
-            <div class="col">
-                <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>
-            </div>
-        </div>
+        <p>&COPY Tienda Bowser, Todos los derechos reservados.</p>
     </footer>
 </body>
 

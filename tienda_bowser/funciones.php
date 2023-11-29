@@ -4,7 +4,7 @@ function getMenu(){
     $menu[] = array("url" => "categorias.php", "name" => "Categorias");
     $menu[] = array("url" => "juegoscrud.php", "name" => "Juegos");
     $menu[] = array("url" => "accesoriosCrud.php", "name" => "Accesorios");
-    $menu[] = array("url" => "consolasCrud.php", "name" => "Consoloas");
+    $menu[] = array("url" => "consolasCrud.php", "name" => "Consolas");
     $menu[] = array("url" => "registrarse.php", "name" => "Registrarse");
     $menu[] = array("url" => "login.php", "name" => "Ingresar");
     return $menu;

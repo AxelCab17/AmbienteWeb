@@ -1,7 +1,7 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
-    background-color: rgb(236, 43, 43) ;
+    background-color: rgb(236, 43, 43);
     margin: 0;
     padding: 0;
 }
@@ -22,7 +22,7 @@ nav {
     flex: 0 0 260px;
 }
 
-.logo img{
+.logo img {
     width: 250px;
 }
 
@@ -47,7 +47,7 @@ nav {
     color: rgb(233, 46, 13);
 }
 
-footer{
+footer {
     padding: 0 25px !important;
     text-align: center !important;
     background-color: black !important;
@@ -82,7 +82,7 @@ footer{
     border-radius: 5px;
 }
 
-body{
+body {
     font-size: calc(16px + 1vw);
 }
 
@@ -93,7 +93,12 @@ button {
 
 
 @media screen and (min-width: 100px) and (max-width: 3080px) {
-    body{
+    body {
         font-size: 12px;
     }
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
 }

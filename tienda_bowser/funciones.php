@@ -1,4 +1,5 @@
 <?php 
+
 function getMenu(){
     $menu = array(array("url" => "index.php", "name" => "Inicio"), array("url" => "nosotros.php", "name" => "Nosotros"));
     $menu[] = array("url" => "juegoscrud.php", "name" => "Juegos");
@@ -8,3 +9,4 @@ function getMenu(){
     $menu[] = array("url" => "login.php", "name" => "Ingresar");
     return $menu;
 }
+

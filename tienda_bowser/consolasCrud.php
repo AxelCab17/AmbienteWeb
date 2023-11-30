@@ -1,12 +1,9 @@
 <?php
-include("funciones.php");
+include 'sql/conexion.php';
+include 'funciones.php';
+include "crudJuegos/crud_Consola.php";
 $menu = getMenu();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "crudJuegos/crud_Consola.php";
-}
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -26,8 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <header th:fragment="header" class="header">
-        <nav class="navbar navbar-expand-lg navbar-danger bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="logo navbar-brand" href="#">
                 <img src="https://cdn.discordapp.com/attachments/1165381757655318588/1165405392671612969/3bW7WPi.png?ex=6546bb59&is=65344659&hm=ac23a5d55495c86e72cfb26cde8d26778547d6d94563612029d304492f5109c9&"
                     class="logo" alt="Tienda Bowser">
@@ -38,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="menu collapse navbar-collapse ml-auto" id="navbarNav">
+            <div class="collapse navbar-collapse ml-auto" id="navbarNav">
                 <ul class="navbar-nav">
                     <?php foreach ($menu as $item) { ?>
                         <li class="nav-item"><a class="nav-link" href="<?php echo $item["url"] ?>">
@@ -51,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Consola
                         </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
+                        <div class="dropdown-menu" aria-labelledby="consolaDropdown">
                             <a class="dropdown-item" href="#">Agregar Consola</a>
                             <a class="dropdown-item" href="#">Ver Consola</a>
                             <a class="dropdown-item" href="#">Editar Consola</a>
@@ -63,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Juego
                         </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
+                        <div class="dropdown-menu" aria-labelledby="juegoDropdown">
                             <a class="dropdown-item" href="#">Agregar Juego</a>
                             <a class="dropdown-item" href="#">Ver Juego</a>
                             <a class="dropdown-item" href="#">Editar Juego</a>
@@ -75,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Accesorio
                         </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
+                        <div class="dropdown-menu" aria-labelledby="accesorioDropdown">
                             <a class="dropdown-item" href="accesoriosCrud.php">Agregar Accesorio</a>
                             <a class="dropdown-item" href="#">Ver Accesorio</a>
                             <a class="dropdown-item" href="#">Editar Accesorio</a>
@@ -87,116 +83,130 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span id="themeIcon" class="fas fa-moon"></span>
             </button>
         </nav>
-        <h2>Consolas</h2>
+        <div class="container mt-5">
+            <h2>Consolas</h2>
 
-        <!-- Agregar Consola Formulario -->
-        <form action="" method="post">
-            <h3>Agregar Consola</h3>
-            <label for="nombre">Nombre de la Consola:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <!-- Agregar Consola Formulario -->
+            <form action="" method="post" class="mt-4">
+                <h3>Agregar Consola</h3>
+                <div class="form-group">
+                    <label for="nombre">Nombre de la Consola:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
 
-            <label for="id_categoria">Categoría:</label>
-            <select id="id_categoria" name="id_categoria" required>
-                <!-- Puedes llenar este select con opciones de categorías existentes si lo deseas -->
-            </select>
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input type="number" step="0.01" class="form-control" id="precio" name="precio" required>
+                </div>
 
-            <label for="precio">Precio:</label>
-            <input type="number" step="0.01" id="precio" name="precio" required>
+                <div class="form-group">
+                    <label for="existencias">Existencias:</label>
+                    <input type="number" class="form-control" id="existencias" name="existencias" required>
+                </div>
 
-            <label for="existencias">Existencias:</label>
-            <input type="number" id="existencias" name="existencias" required>
+                <div class="form-group">
+                    <label for="ruta_imagen">URL Imagen:</label>
+                    <input type="text" class="form-control" id="ruta_imagen" name="ruta_imagen">
+                </div>
 
-            <label for="ruta_imagen">URL Imagen:</label>
-            <input type="text" id="ruta_imagen" name="ruta_imagen">
+                <button class="btn btn-danger" type="submit" name="agregar">Agregar Consola</button>
+            </form>
 
-            <button class="botonCrud" type="submit" name="agregar">Agregar Consola</button>
-        </form>
+            <!-- Lista de Consolas -->
+            <h3 class="mt-4">Lista de Consolas</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Existencias</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($conexion instanceof mysqli) {
+                        $consolas = obtenerConsolas($conexion);
 
-        <!-- Lista de Consolas -->
-        <h3>Lista de Consolas</h3>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-                <th>Existencias</th>
-                <th>Acciones</th>
-            </tr>
+                        while ($row = mysqli_fetch_assoc($consolas)) {
+                            echo "<tr>";
+                            echo "<td>" . $row['id_consola'] . "</td>";
+                            echo "<td>" . $row['nombre'] . "</td>";
+                            echo "<td>$" . $row['precio'] . "</td>";
+                            echo "<td>" . $row['existencias'] . "</td>";
+                            echo "<td>
+                                    <form action='' method='post'>
+                                        <input type='hidden' name='id_consola' value='" . $row['id_consola'] . "'>
+                                        <button type='submit' name='ver' class='btn btn-info'>Ver</button>
+                                        <button type='submit' name='editar' class='btn btn-warning'>Editar</button>
+                                        <button type='submit' name='eliminar' class='btn btn-danger'>Eliminar</button>
+                                    </form>
+                                  </td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5'>Error: La conexión a la base de datos no está establecida correctamente.</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
 
+            <!-- Ver, Editar, Eliminar Consola Formulario -->
             <?php
-            $consolas = obtenerConsolas($conexion);
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST["ver"]) || isset($_POST["editar"]))) {
+                $id_consola = $_POST["id_consola"];
+                $consola = obtenerConsolaPorId($conexion, $id_consola);
+                $row = mysqli_fetch_assoc($consola);
 
-            while ($row = mysqli_fetch_assoc($consolas)) {
-                echo "<tr>";
-                echo "<td>" . $row['id_consola'] . "</td>";
-                echo "<td>" . $row['nombre'] . "</td>";
-                echo "<td>" . $row['id_categoria'] . "</td>";
-                echo "<td>" . $row['precio'] . "</td>";
-                echo "<td>" . $row['existencias'] . "</td>";
-                echo "<td>
-                    <form action='' method='post'>
-                        <input type='hidden' name='id_consola' value='" . $row['id_consola'] . "'>
-                        <button type='submit' name='ver'>Ver</button>
-                        <button type='submit' name='editar'>Editar</button>
-                        <button type='submit' name='eliminar'>Eliminar</button>
-                    </form>
-                  </td>";
-                echo "</tr>";
+                echo "<form action='' method='post' class='mt-4'>
+                        <h3>Detalles de la Consola</h3>
+                        <div class='form-group'>
+                            <label for='nombre'>Nombre de la Consola:</label>
+                            <input type='text' class='form-control' id='nombre' name='nombre' value='" . ($row['nombre'] ?? '') . "' required>
+                        </div>
+
+                        <div class='form-group'>
+                            <label for='precio'>Precio:</label>
+                            <input type='number' step='0.01' class='form-control' id='precio' name='precio' value='" . ($row['precio'] ?? '') . "' required>
+                        </div>
+
+                        <div class='form-group'>
+                            <label for='existencias'>Existencias:</label>
+                            <input type='number' class='form-control' id='existencias' name='existencias' value='" . ($row['existencias'] ?? '') . "' required>
+                        </div>
+
+                        <div class='form-group'>
+                            <label for='ruta_imagen'>URL Imagen:</label>
+                            <input type='text' class='form-control' id='ruta_imagen' name='ruta_imagen' value='" . ($row['ruta_imagen'] ?? '') . "'>
+                        </div>
+
+                        <button type='submit' name='editar' class='btn btn-warning'>Guardar Cambios</button>
+                      </form>";
+            } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ver"])) {
+                $id_consola = $_POST["id_consola"];
+                $consola = obtenerConsolaPorId($conexion, $id_consola);
+                $row = mysqli_fetch_assoc($consola);
+
+                echo "<h3>Detalles de la Consola</h3>";
+                echo "<div class='form-group'><strong>ID:</strong> " . $row['id_consola'] . "</div>";
+                echo "<div class='form-group'><strong>Nombre:</strong> " . $row['nombre'] . "</div>";
+                echo "<div class='form-group'><strong>Precio:</strong> $" . $row['precio'] . "</div>";
+                echo "<div class='form-group'><strong>Existencias:</strong> " . $row['existencias'] . "</div>";
+                echo "<div class='form-group'><strong>Ruta de Imagen:</strong> " . $row['ruta_imagen'] . "</div>";
+                echo "<button type='button' onclick='history.go(-1);' class='btn btn-secondary'>Volver</button>";
             }
             ?>
-        </table>
+        </div>
+    </header>
 
-        <!-- Ver, Editar, Eliminar Consola Formulario -->
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST["ver"]) || isset($_POST["editar"]))) {
-            $id_consola = $_POST["id_consola"];
-            $consola = obtenerConsolaPorId($conexion, $id_consola);
-            $row = mysqli_fetch_assoc($consola);
-
-            echo "<form action='' method='post'>
-                <h3>Detalles de la Consola</h3>
-                <label for='nombre'>Nombre de la Consola:</label>
-                <input type='text' id='nombre' name='nombre' value='" . $row['nombre'] . "' required>
-
-                <label for='id_categoria'>Categoría:</label>
-                <select id='id_categoria' name='id_categoria' required>
-                    <!-- Puedes llenar este select con opciones de categorías existentes si lo deseas -->
-                </select>
-
-                <label for='precio'>Precio:</label>
-                <input type='number' step='0.01' id='precio' name='precio' value='" . $row['precio'] . "' required>
-
-                <label for='existencias'>Existencias:</label>
-                <input type='number' id='existencias' name='existencias' value='" . $row['existencias'] . "' required>
-
-                <label for='ruta_imagen'>URL Imagen:</label>
-                <input type='text' id='ruta_imagen' name='ruta_imagen' value='" . $row['ruta_imagen'] . "'>
-
-                <button type='submit' name='editar'>Guardar Cambios</button>
-              </form>";
-        } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ver"])) {
-            $id_consola = $_POST["id_consola"];
-            $consola = obtenerConsolaPorId($conexion, $id_consola);
-            $row = mysqli_fetch_assoc($consola);
-
-            echo "<h3>Detalles de la Consola</h3>";
-            echo "<p><strong>ID:</strong> " . $row['id_consola'] . "</p>";
-            echo "<p><strong>Nombre:</strong> " . $row['nombre'] . "</p>";
-            echo "<p><strong>Categoría:</strong> " . $row['id_categoria'] . "</p>";
-            echo "<p><strong>Precio:</strong> $" . $row['precio'] . "</p>";
-            echo "<p><strong>Existencias:</strong> " . $row['existencias'] . "</p>";
-            echo "<p><strong>Ruta de Imagen:</strong> " . $row['ruta_imagen'] . "</p>";
-            echo "<button type='button' onclick='history.go(-1);'>Volver</button>";
-        }
-        ?>
-        <footer>
-            <div class="container">
-                <div class="col">
-                    <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>
-                </div>
+    <footer class="bg-dark text-white mt-5">
+        <div class="container">
+            <div class="col">
+                <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -8,10 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apellidos = $_POST["apellidos"];
     $correo = $_POST["correo"];
     $telefono = $_POST["telefono"];
-    $ruta_imagen = $_POST["ruta_imagen"];
 
     // Llamar a la función de registro
-    $registroResult = registrarUsuario($username, $password, $nombre, $apellidos, $correo, $telefono, $ruta_imagen);
+    $registroResult = registrarUsuario($username, $password, $nombre, $apellidos, $correo, $telefono);
 
     if ($registroResult) {
         // Registro exitoso
@@ -26,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-function registrarUsuario($username, $password, $nombre, $apellidos, $correo, $telefono, $ruta_imagen) {
+function registrarUsuario($username, $password, $nombre, $apellidos, $correo, $telefono) {
     $conexion = Conecta();
     $username = mysqli_real_escape_string($conexion, $username);
     $password = mysqli_real_escape_string($conexion, $password);
@@ -34,10 +33,9 @@ function registrarUsuario($username, $password, $nombre, $apellidos, $correo, $t
     $apellidos = mysqli_real_escape_string($conexion, $apellidos);
     $correo = mysqli_real_escape_string($conexion, $correo);
     $telefono = mysqli_real_escape_string($conexion, $telefono);
-    $ruta_imagen = mysqli_real_escape_string($conexion, $ruta_imagen);
 
-    $query = "INSERT INTO usuario (username, password, nombre, apellidos, correo, telefono, ruta_imagen, activo) 
-              VALUES ('$username', '$password', '$nombre', '$apellidos', '$correo', '$telefono', '$ruta_imagen', true)";
+    $query = "INSERT INTO usuario (username, password, nombre, apellidos, correo, telefono,activo) 
+              VALUES ('$username', '$password', '$nombre', '$apellidos', '$correo', '$telefono', true)";
 
     $resultado = mysqli_query($conexion, $query);
     Desconecta($conexion);

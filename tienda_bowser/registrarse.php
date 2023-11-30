@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <header th:fragment="header" class="header">
+<header th:fragment="header" class="header">
         <nav class="navbar navbar-expand-lg navbar-danger bg-dark">
             <a class="logo navbar-brand" href="#">
                 <img src="https://cdn.discordapp.com/attachments/1165381757655318588/1165405392671612969/3bW7WPi.png?ex=6546bb59&is=65344659&hm=ac23a5d55495c86e72cfb26cde8d26778547d6d94563612029d304492f5109c9&"
@@ -86,32 +86,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span id="themeIcon" class="fas fa-moon"></span>
             </button>
         </nav>
+        <div class="container mt-5">
+        <h2 class="mb-4">Registrarse</h2>
+            <form action="" method="post" class="bg-light p-4 rounded">
+                <div class="form-group">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
 
-        <h2>Registrarse</h2>
-        <form action="" method="post">
-            <label for="username">Nombre de Usuario:</label>
-            <input type="text" id="username" name="username" required>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
 
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+                </div>
 
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+                <div class="form-group">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellidos" class="form-control" required>
+                </div>
 
-            <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" name="apellidos" required>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" class="form-control">
+                </div>
 
-            <label for="correo">Correo Electrónico:</label>
-            <input type="email" id="correo" name="correo">
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" class="form-control">
+                </div>
 
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono">
-
-            <label for="ruta_imagen">URL Imagen:</label>
-            <input type="text" id="ruta_imagen" name="ruta_imagen">
-
-            <button type="submit">Registrarse</button>
-        </form>
+                <button type="submit" class="btn btn-danger">Registrarse</button>
+            </form>
+            </div>
         <footer>
             <div class="container">
                 <div class="col">

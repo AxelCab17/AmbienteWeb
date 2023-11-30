@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesion</title>
+    <title>Iniciar Sesión</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -23,11 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
 </head>
 
 <body>
-    <header th:fragment="header" class="header">
+<header th:fragment="header" class="header">
         <nav class="navbar navbar-expand-lg navbar-danger bg-dark">
             <a class="logo navbar-brand" href="#">
                 <img src="https://cdn.discordapp.com/attachments/1165381757655318588/1165405392671612969/3bW7WPi.png?ex=6546bb59&is=65344659&hm=ac23a5d55495c86e72cfb26cde8d26778547d6d94563612029d304492f5109c9&"
@@ -88,16 +87,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span id="themeIcon" class="fas fa-moon"></span>
             </button>
         </nav>
-        <h2>Iniciar Sesión</h2>
-        <form action="" method="post">
-            <label for="username">Nombre de Usuario:</label>
-            <input type="text" id="username" name="username" required>
+        <div class="container mt-5">
+            <h2 class="mb-4">Iniciar Sesión</h2>
+            <form action="" method="post" class="bg-light p-4 rounded">
+                <div class="form-group">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
 
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
 
-            <button type="submit">Iniciar Sesión</button>
-        </form>
+                <button type="submit" class="btn btn-danger">Iniciar Sesión</button>
+            </form>
+        </div>
         <footer>
             <div class="container">
                 <div class="col">

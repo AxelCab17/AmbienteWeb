@@ -9,12 +9,11 @@ if (!isset($conexion)) {
 // Agregar Consola
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar"])) {
     $nombre = $_POST["nombre"];
-    $id_categoria = $_POST["id_categoria"];
     $precio = $_POST["precio"];
     $existencias = $_POST["existencias"];
     $ruta_imagen = $_POST["ruta_imagen"];
 
-    $agregarConsolaResult = agregarConsola($conexion, $nombre, $id_categoria, $precio, $existencias, $ruta_imagen);
+    $agregarConsolaResult = agregarConsola($conexion, $nombre, $precio, $existencias, $ruta_imagen);
 
     if ($agregarConsolaResult) {
         echo '<script>alert("Consola agregada exitosamente.");</script>';
@@ -27,12 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editar"])) {
     $id_consola = $_POST["id_consola"];
     $nombre = $_POST["nombre"];
-    $id_categoria = $_POST["id_categoria"];
     $precio = $_POST["precio"];
     $existencias = $_POST["existencias"];
     $ruta_imagen = $_POST["ruta_imagen"];
 
-    $editarConsolaResult = editarConsola($conexion, $id_consola, $nombre, $id_categoria, $precio, $existencias, $ruta_imagen);
+    $editarConsolaResult = editarConsola($conexion, $id_consola, $nombre, $precio, $existencias, $ruta_imagen);
 
     if ($editarConsolaResult) {
         echo '<script>alert("Consola editada exitosamente.");</script>';
@@ -59,6 +57,7 @@ function obtenerConsolas($conexion) {
     $query = "SELECT * FROM consola";
     $result = mysqli_query($conexion, $query);
     return $result;
+    
 }
 
 // Función para obtener la información de una consola por su ID
@@ -69,24 +68,24 @@ function obtenerConsolaPorId($conexion, $id_consola) {
 }
 
 // Función para agregar una consola
-function agregarConsola($conexion, $nombre, $id_categoria, $precio, $existencias, $ruta_imagen) {
+function agregarConsola($conexion, $nombre, $precio, $existencias, $ruta_imagen) {
     $nombre = mysqli_real_escape_string($conexion, $nombre);
     $ruta_imagen = mysqli_real_escape_string($conexion, $ruta_imagen);
 
-    $query = "INSERT INTO consola (nombre, id_categoria, precio, existencias, ruta_imagen, activo) 
-              VALUES ('$nombre', '$id_categoria', '$precio', '$existencias', '$ruta_imagen', true)";
+    $query = "INSERT INTO consola (nombre, precio, existencias, ruta_imagen, activo) 
+              VALUES ('$nombre', '$precio', '$existencias', '$ruta_imagen', true)";
 
     $resultado = mysqli_query($conexion, $query);
     return $resultado;
 }
 
 // Función para editar una consola
-function editarConsola($conexion, $id_consola, $nombre, $id_categoria, $precio, $existencias, $ruta_imagen) {
+function editarConsola($conexion, $id_consola, $nombre, $precio, $existencias, $ruta_imagen) {
     $nombre = mysqli_real_escape_string($conexion, $nombre);
     $ruta_imagen = mysqli_real_escape_string($conexion, $ruta_imagen);
 
     $query = "UPDATE consola 
-              SET nombre='$nombre', id_categoria='$id_categoria', precio='$precio', existencias='$existencias', ruta_imagen='$ruta_imagen'
+              SET nombre='$nombre', precio='$precio', existencias='$existencias', ruta_imagen='$ruta_imagen'
               WHERE id_consola='$id_consola'";
 
     $resultado = mysqli_query($conexion, $query);
@@ -99,4 +98,5 @@ function eliminarConsola($conexion, $id_consola) {
     $resultado = mysqli_query($conexion, $query);
     return $resultado;
 }
+
 ?>

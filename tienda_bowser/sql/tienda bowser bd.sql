@@ -50,7 +50,6 @@ CREATE TABLE tiendabowser.usuario (
   apellidos VARCHAR(30) NOT NULL,
   correo VARCHAR(50),  -- Ajusta el tamaño según tus necesidades
   telefono VARCHAR(15),
-  ruta_imagen VARCHAR(1024),
   activo BOOLEAN,
   PRIMARY KEY (id_usuario),
   UNIQUE INDEX idx_username (username)

@@ -83,34 +83,34 @@ $menu = getMenu();
 
             <!-- Agregar Juego Formulario -->
             <form action="" method="post" class="bg-light p-4 rounded">
-                <h3>Agregar Juego</h3>
-                <div class="form-group">
-                    <label for="nombre">Nombre del Juego:</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" required>
-                </div>
+    <h3>Agregar Juego</h3>
+    <div class="form-group">
+        <label for="nombre">Nombre del Juego:</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" required>
+    </div>
 
-                <div class="form-group">
-                    <label for="consola">Consola:</label>
-                    <input type="text" id="consola" name="consola" class="form-control" required>
-                </div>
+    <div class="form-group">
+        <label for="consola">Consola:</label>
+        <input type="text" id="consola" name="consola" class="form-control" required>
+    </div>
 
-                <div class="form-group">
-                    <label for="precio">Precio:</label>
-                    <input type="number" step="0.01" id="precio" name="precio" class="form-control" required>
-                </div>
+    <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" id="precio" name="precio" class="form-control" required>
+    </div>
 
-                <div class="form-group">
-                    <label for="existencias">Existencias:</label>
-                    <input type="number" id="existencias" name="existencias" class="form-control" required>
-                </div>
+    <div class="form-group">
+        <label for="existencias">Existencias:</label>
+        <input type="number" id="existencias" name="existencias" class="form-control" required>
+    </div>
 
-                <div class="form-group">
-                    <label for="ruta_imagen">URL Imagen:</label>
-                    <input type="text" id="ruta_imagen" name="ruta_imagen" class="form-control">
-                </div>
+    <div class="form-group">
+        <label for="ruta_imagen">URL Imagen:</label>
+        <input type="text" id="ruta_imagen" name="ruta_imagen" class="form-control">
+    </div>
 
-                <button type="submit" class="btn btn-danger">Agregar Juego</button>
-            </form>
+    <button type="submit" name="agregar" class="btn btn-danger">Agregar Juego</button>
+</form>
 
             <!-- Lista de Juegos -->
             <h3 class="mt-4">Lista de Juegos</h3>

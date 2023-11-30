@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar"])) {
     if ($agregarJuegoResult) {
         echo '<script>alert("Juego agregado exitosamente.");</script>';
     } else {
-        echo '<script>alert("Error al agregar el juego. Inténtalo de nuevo.");</script>';
+        echo '<script>alert("Error al agregar el juego. Detalles: ' . mysqli_error($conexion) . '");</script>';
     }
 }
 

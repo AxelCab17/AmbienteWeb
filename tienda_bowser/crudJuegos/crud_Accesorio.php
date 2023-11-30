@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar"])) {
     if ($agregarAccesorioResult) {
         echo '<script>alert("Accesorio agregado exitosamente.");</script>';
     } else {
-        echo '<script>alert("Error al agregar el accesorio. Inténtalo de nuevo.");</script>';
+        echo '<script>alert("Error al agregar el accesorio. Detalles: ' . mysqli_error($conexion) . '");</script>';
     }
 }
 

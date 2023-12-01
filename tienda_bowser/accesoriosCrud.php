@@ -24,7 +24,8 @@ $menu = getMenu();
 
 <body>
 <header th:fragment="header" class="header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header th:fragment="header" class="header">
+        <nav class="navbar navbar-expand-lg navbar-danger bg-dark">
             <a class="logo navbar-brand" href="#">
                 <img src="https://cdn.discordapp.com/attachments/1165381757655318588/1165405392671612969/3bW7WPi.png?ex=6546bb59&is=65344659&hm=ac23a5d55495c86e72cfb26cde8d26778547d6d94563612029d304492f5109c9&"
                     class="logo" alt="Tienda Bowser">
@@ -35,7 +36,7 @@ $menu = getMenu();
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+            <div class="menu collapse navbar-collapse ml-auto" id="navbarNav">
                 <ul class="navbar-nav">
                     <?php foreach ($menu as $item) { ?>
                         <li class="nav-item"><a class="nav-link" href="<?php echo $item["url"] ?>">
@@ -48,7 +49,7 @@ $menu = getMenu();
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Consola
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="consolaDropdown">
+                        <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
                             <a class="dropdown-item" href="#">Agregar Consola</a>
                             <a class="dropdown-item" href="#">Ver Consola</a>
                             <a class="dropdown-item" href="#">Editar Consola</a>
@@ -60,7 +61,7 @@ $menu = getMenu();
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Juego
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="juegoDropdown">
+                        <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
                             <a class="dropdown-item" href="#">Agregar Juego</a>
                             <a class="dropdown-item" href="#">Ver Juego</a>
                             <a class="dropdown-item" href="#">Editar Juego</a>
@@ -72,7 +73,7 @@ $menu = getMenu();
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Accesorio
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="accesorioDropdown">
+                        <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
                             <a class="dropdown-item" href="accesoriosCrud.php">Agregar Accesorio</a>
                             <a class="dropdown-item" href="#">Ver Accesorio</a>
                             <a class="dropdown-item" href="#">Editar Accesorio</a>
@@ -80,6 +81,11 @@ $menu = getMenu();
                     </li>
                 </ul>
             </div>
+            <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">
+                <span id="themeIcon" class="fas fa-moon"></span>
+            </button>
+        </nav>
+    </header>
             <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">
                 <span id="themeIcon" class="fas fa-moon"></span>
             </button>
@@ -205,7 +211,6 @@ $menu = getMenu();
                 </div>
             </div>
         </footer>
-    </header>
 </body>
 
 </html>

@@ -51,6 +51,7 @@ footer {
     padding: 0 25px !important;
     text-align: center !important;
     background-color: black !important;
+    color: white;
 }
 
 .juego {
@@ -93,6 +94,18 @@ body {
 button {
     background-color: rgb(148, 148, 148);
     color: red;
+}
+
+.titulonosotros{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.historianosotros{
+    font-size: 16px;
+    text-align: center;
+    color: white;
 }
 
 

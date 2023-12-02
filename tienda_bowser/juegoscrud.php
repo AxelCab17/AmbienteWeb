@@ -219,6 +219,12 @@ $menu = getMenu();
             </div>
         </div>
     </footer>
-</body>
+    <script>
+            modoOscuro();
 
+            scrollSmooth();
+
+            logoHover();
+        </script>
+</body>
 </html>

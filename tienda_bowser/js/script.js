@@ -65,3 +65,56 @@ function logoHover() {
         clearTimeout(hoverTimeout);
     });
 }
+
+function loginValidar() {
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+
+    if (username.trim() === '' || password.trim() === '') {
+        alert('Please fill in both username and password.');
+        return false;
+    } else {
+
+        alert('Login successful!');
+        return true;
+    }
+}
+
+function validarRegistro() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const nombre = document.getElementById('nombre').value;
+    const apellidos = document.getElementById('apellidos').value;
+
+    if (username.trim() === '' || password.trim() === '' || nombre.trim() === '' || apellidos.trim() === '') {
+        alert('Please fill in all required fields.');
+        return false;
+    }
+
+    return true;
+}
+
+// Updated toggleCreatorsVisibility function
+function creadoresVisibilidad() {
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Toggle visibility of the description using Bootstrap 4 collapse class
+            const description = button.nextElementSibling;
+            const isHidden = description.classList.contains('collapse');
+
+            if (isHidden) {
+                description.classList.remove('collapse');
+            } else {
+                description.classList.add('collapse');
+            }
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    creadoresVisibilidad();
+});

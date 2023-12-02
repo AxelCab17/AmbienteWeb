@@ -91,6 +91,13 @@ $menu = getMenu();
         </div>
     </footer>
     </header>
+    <script>
+            modoOscuro();
+
+            scrollSmooth();
+
+            logoHover();
+        </script>
 </body>
 
 </html>

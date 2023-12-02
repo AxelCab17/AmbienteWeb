@@ -131,7 +131,7 @@ $menu = getMenu();
             </h2>
             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <strong>Mi nombre es Enzo Leonardo Quesada Arand</strong> Vivo en Sabana Norte, Tengo 20 años, Mis pasatiempos es ir al gym, ensamblar PCs y estudio Ingeniería en Sistemas
+                    <strong>Mi nombre es Enzo Leonardo Quesada Arand</strong> Vivo en San José Sabana Norte, Tengo 20 años, Mis pasatiempos es ir al gym, ensamblar PCs y estudio Ingeniería en Sistemas
                 </div>
             </div>
         </div>
@@ -156,6 +156,12 @@ $menu = getMenu();
             </div>
         </div>
     </footer>
-</body>
+    <script>
+            modoOscuro();
 
+            scrollSmooth();
+
+            logoHover();
+        </script>
+</body>
 </html>

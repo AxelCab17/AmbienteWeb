@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </nav>
         <div class="container mt-5">
         <h2 class="mb-4">Registrarse</h2>
-            <form action="" method="post" class="bg-light p-4 rounded">
+            <form action="" method="post" onsubmit="return validarRegistro()" class="bg-light p-4 rounded">
                 <div class="form-group">
                     <label for="username">Nombre de Usuario:</label>
                     <input type="text" id="username" name="username" class="form-control" required>
@@ -129,6 +129,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </footer>
+        <script>
+            modoOscuro();
+
+            scrollSmooth();
+
+            logoHover();
+
+            validarRegistro();
+        </script>
 </body>
 
 </html>

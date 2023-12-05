@@ -47,7 +47,7 @@ $menu = getMenu();
                             Consola
                         </a>
                         <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
-                            <a class="dropdown-item" href="#">Agregar Consola</a>
+                            <a class="dropdown-item" href="consolasCrud.php">Agregar Consola</a>
                             <a class="dropdown-item" href="#">Ver Consola</a>
                             <a class="dropdown-item" href="#">Editar Consola</a>
                         </div>
@@ -59,7 +59,7 @@ $menu = getMenu();
                             Juego
                         </a>
                         <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
-                            <a class="dropdown-item" href="#">Agregar Juego</a>
+                            <a class="dropdown-item" href="juegosCrud.php">Agregar Juego</a>
                             <a class="dropdown-item" href="#">Ver Juego</a>
                             <a class="dropdown-item" href="#">Editar Juego</a>
                         </div>

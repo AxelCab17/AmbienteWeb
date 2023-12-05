@@ -96,13 +96,11 @@ function validarRegistro() {
     return true;
 }
 
-// Updated toggleCreatorsVisibility function
 function creadoresVisibilidad() {
     const accordionButtons = document.querySelectorAll('.accordion-button');
 
     accordionButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Toggle visibility of the description using Bootstrap 4 collapse class
             const description = button.nextElementSibling;
             const isHidden = description.classList.contains('collapse');
 

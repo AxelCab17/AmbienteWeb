@@ -25,7 +25,7 @@ $menu = getMenu();
 <body>
 <header th:fragment="header" class="header">
         <nav class="navbar navbar-expand-lg navbar-danger bg-dark">
-            <a class="logo navbar-brand" href="#">
+            <a class="logo navbar-brand" href="index.php">
                 <img src="https://cdn.discordapp.com/attachments/1165381757655318588/1165405392671612969/3bW7WPi.png?ex=6546bb59&is=65344659&hm=ac23a5d55495c86e72cfb26cde8d26778547d6d94563612029d304492f5109c9&"
                     class="logo" alt="Tienda Bowser">
             </a>

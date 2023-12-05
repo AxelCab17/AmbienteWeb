@@ -73,11 +73,11 @@ function loginValidar() {
 
 
     if (username.trim() === '' || password.trim() === '') {
-        alert('Please fill in both username and password.');
+        alert('Por favor rellenar los espacios del usuario y contraseña');
         return false;
     } else {
 
-        alert('Login successful!');
+        alert('Login exitoso!');
         return true;
     }
 }
@@ -89,7 +89,7 @@ function validarRegistro() {
     const apellidos = document.getElementById('apellidos').value;
 
     if (username.trim() === '' || password.trim() === '' || nombre.trim() === '' || apellidos.trim() === '') {
-        alert('Please fill in all required fields.');
+        alert('Por favor rellenar los espacios requeridos.');
         return false;
     }
 

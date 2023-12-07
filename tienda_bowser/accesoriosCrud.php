@@ -86,10 +86,6 @@ $menu = getMenu();
             </button>
         </nav>
     </header>
-            <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">
-                <span id="themeIcon" class="fas fa-moon"></span>
-            </button>
-        </nav>
         <div class="container mt-5">
             <h2 class="mb-4">Accesorios</h2>
 

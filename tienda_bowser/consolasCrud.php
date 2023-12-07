@@ -85,15 +85,11 @@ $menu = getMenu();
             </button>
         </nav>
     </header>
-            <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">
-                <span id="themeIcon" class="fas fa-moon"></span>
-            </button>
-        </nav>
         <div class="container mt-5">
-            <h2>Consolas</h2>
+            <h2 class="mb-4">Consolas</h2>
 
             <!-- Agregar Consola Formulario -->
-            <form action="" method="post" class="mt-4">
+            <form action="" method="post" class="bg-light p-4 rounded">
                 <h3>Agregar Consola</h3>
                 <div class="form-group">
                     <label for="nombre">Nombre de la Consola:</label>

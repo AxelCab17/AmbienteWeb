@@ -1,6 +1,7 @@
 <?php
 include("funciones.php");
 $menu = getMenu();
+$usuario_autenticado = true;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "Login/procesar_login.php";
 }
@@ -46,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <?php echo $item["name"] ?>
                             </a></li>
                     <?php } ?>
+                    <?php if ($usuario_autenticado): ?>
                     <!-- Menú desplegable de "Consola" -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="consolaDropdown" role="button"
@@ -82,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <a class="dropdown-item" href="#">Editar Accesorio</a>
                         </div>
                     </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">

@@ -78,6 +78,7 @@ function loginValidar() {
     } else {
 
         alert('Login exitoso!');
+        location.reload(); 
         return true;
     }
 }

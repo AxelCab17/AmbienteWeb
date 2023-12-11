@@ -1,6 +1,19 @@
 <?php
 include("funciones.php");
 $menu = getMenu();
+$usuario_autenticado = false;
+session_start();
+print_r($_SESSION);
+if(!empty($_SESSION['usuario_autenticado'])) {
+    $usuario_autenticado = true; 
+  }
+  
+  if($usuario_autenticado) {
+  
+  }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "Login/procesar_login.php";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,47 +47,57 @@ $menu = getMenu();
             </button>
 
             <div class="menu collapse navbar-collapse ml-auto" id="navbarNav">
-                <ul class="navbar-nav">
-                    <?php foreach ($menu as $item) { ?>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo $item["url"] ?>">
-                                <?php echo $item["name"] ?>
-                            </a></li>
-                    <?php } ?>
-                    <!-- Menú desplegable de "Consola" -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="consolaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Consola
-                        </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
-                            <a class="dropdown-item" href="consolasCrud.php">Agregar Consola</a>
-                            <a class="dropdown-item" href="#">Ver Consola</a>
-                            <a class="dropdown-item" href="#">Editar Consola</a>
-                        </div>
-                    </li>
-                    <!-- Menú desplegable de "Juego" -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="juegoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Juego
-                        </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
-                            <a class="dropdown-item" href="juegosCrud.php">Agregar Juego</a>
-                            <a class="dropdown-item" href="#">Ver Juego</a>
-                            <a class="dropdown-item" href="#">Editar Juego</a>
-                        </div>
-                    </li>
-                    <!-- Menú desplegable de "Accesorio" -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="accesorioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Accesorio
-                        </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
-                            <a class="dropdown-item" href="accesoriosCrud.php">Agregar Accesorio</a>
-                            <a class="dropdown-item" href="#">Ver Accesorio</a>
-                            <a class="dropdown-item" href="#">Editar Accesorio</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+    <ul class="navbar-nav">
+        <?php foreach ($menu as $item) { ?>
+            <li class="nav-item"><a class="nav-link" href="<?php echo $item["url"] ?>">
+                    <?php echo $item["name"] ?>
+                </a></li>
+        <?php } ?>
+        <?php if ($usuario_autenticado): ?>
+            <!-- Menú desplegable de "Consola" -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="consolaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Consola
+                </a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
+                    <a class="dropdown-item" href="consolasCrud.php">Agregar Consola</a>
+                    <a class="dropdown-item" href="#">Ver Consola</a>
+                    <a class="dropdown-item" href="#">Editar Consola</a>
+                </div>
+            </li>
+            <!-- Menú desplegable de "Juego" -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="juegoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Juego
+                </a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
+                    <a class="dropdown-item" href="juegosCrud.php">Agregar Juego</a>
+                    <a class="dropdown-item" href="#">Ver Juego</a>
+                    <a class="dropdown-item" href="#">Editar Juego</a>
+                </div>
+            </li>
+            <!-- Menú desplegable de "Accesorio" -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="accesorioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Accesorio
+                </a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
+                    <a class="dropdown-item" href="accesoriosCrud.php">Agregar Accesorio</a>
+                    <a class="dropdown-item" href="#">Ver Accesorio</a>
+                    <a class="dropdown-item" href="#">Editar Accesorio</a>
+                </div>
+            </li>
+        <?php endif; ?>
+        <?php if ($usuario_autenticado): ?>
+    <!-- Menú desplegable de "Cerrar Sesión" -->
+    <li class="nav-item">
+        <form method="post" action="procesar_logout.php">
+            <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
+        </form>
+    </li>
+<?php endif; ?>
+    </ul>
+</div>
             <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">
                 <span id="themeIcon" class="fas fa-moon"></span>
             </button>
@@ -123,6 +146,7 @@ $menu = getMenu();
 
         logoHover();
     </script>
+     
 </body>
 
 </html>

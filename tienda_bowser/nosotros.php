@@ -1,6 +1,18 @@
 <?php
 include("funciones.php");
 $menu = getMenu();
+$usuario_autenticado = false;
+session_start();
+if(!empty($_SESSION['usuario_autenticado'])) {
+    $usuario_autenticado = true; 
+  }
+  
+  if($usuario_autenticado) {
+  
+  }
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "Login/procesar_login.php";
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +52,7 @@ $menu = getMenu();
                                 <?php echo $item["name"] ?>
                             </a></li>
                     <?php } ?>
+                    <?php if ($usuario_autenticado): ?>
                     <!-- Menú desplegable de "Consola" -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="consolaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,6 +87,7 @@ $menu = getMenu();
                         </div>
                     </li>
                 </ul>
+                <?php endif; ?>
             </div>
             <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">
                 <span id="themeIcon" class="fas fa-moon"></span>

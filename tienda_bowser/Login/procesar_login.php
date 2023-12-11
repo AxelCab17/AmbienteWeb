@@ -11,20 +11,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($loginResult) {
         // Inicio de sesión exitoso
         // Redirigir a la página de inicio o realizar acciones según el rol
-        echo "Inicio de sesión exitoso. Roles: " . implode(', ', $loginResult['roles']);
+        echo "Inicio de sesión exitoso." . implode(', ', $loginResult['roles']);
 
-        // Agregar script de JavaScript para redirigir y mostrar mensaje
-        echo '<script>';
-        echo 'alert("Inicio de sesión exitoso. Serás redirigido al menú principal.");';
-        echo 'window.location.href = "index.php";'; // Cambia "/ruta/a/tu/menu_principal.php" por la ruta correcta
-        echo '</script>';
-    } else {
-        // Usuario o contraseña incorrectos
-        echo "Usuario o contraseña incorrectos. Inténtalo de nuevo.";
+        // Establecer la variable de sesión
+        session_start();
+        $_SESSION['usuario_autenticado'] = true;
+
+            // Agregar script de JavaScript para redirigir y mostrar mensaje
+            echo '<script>';
+            echo 'alert("Inicio de sesión exitoso. Serás redirigido al menú principal.");';
+            echo 'window.location.href = "index.php";'; // Cambia "/ruta/a/tu/menu_principal.php" por la ruta correcta
+            echo '</script>';
+        } else {
+            // Usuario o contraseña incorrectos
+            echo "Usuario o contraseña incorrectos. Inténtalo de nuevo.";
+        }
     }
-}
-
-function login($username, $password) {
+function login($username, $password)
+{
     $conexion = Conecta();
     $username = mysqli_real_escape_string($conexion, $username);
     $query = "SELECT * FROM usuario WHERE username = '$username'";
@@ -45,7 +49,8 @@ function login($username, $password) {
     return null;
 }
 
-function obtenerRolesUsuario($id_usuario) {
+function obtenerRolesUsuario($id_usuario)
+{
     $conexion = Conecta();
     $query = "SELECT nombre FROM rol WHERE id_usuario = $id_usuario";
     $resultado = mysqli_query($conexion, $query);
@@ -58,5 +63,3 @@ function obtenerRolesUsuario($id_usuario) {
     Desconecta($conexion);
     return $roles;
 }
-?>
-

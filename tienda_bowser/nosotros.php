@@ -3,6 +3,7 @@ include("funciones.php");
 $menu = getMenu();
 $usuario_autenticado = false;
 session_start();
+
 if(!empty($_SESSION['usuario_autenticado'])) {
     $usuario_autenticado = true; 
   }
@@ -10,11 +11,10 @@ if(!empty($_SESSION['usuario_autenticado'])) {
   if($usuario_autenticado) {
   
   }
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "Login/procesar_login.php";
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -34,10 +34,10 @@ if(!empty($_SESSION['usuario_autenticado'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
-<body class="body">
+<body>
     <header th:fragment="header" class="header">
         <nav class="navbar navbar-expand-lg navbar-danger bg-dark">
-            <a class="logo navbar-brand" href="index.php">
+            <a class="logo navbar-brand" href="#">
                 <img src="https://cdn.discordapp.com/attachments/1165381757655318588/1165405392671612969/3bW7WPi.png?ex=6546bb59&is=65344659&hm=ac23a5d55495c86e72cfb26cde8d26778547d6d94563612029d304492f5109c9&" class="logo" alt="Tienda Bowser">
             </a>
 
@@ -46,54 +46,60 @@ if(!empty($_SESSION['usuario_autenticado'])) {
             </button>
 
             <div class="menu collapse navbar-collapse ml-auto" id="navbarNav">
-                <ul class="navbar-nav">
-                    <?php foreach ($menu as $item) { ?>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo $item["url"] ?>">
-                                <?php echo $item["name"] ?>
-                            </a></li>
-                    <?php } ?>
-                    <?php if ($usuario_autenticado): ?>
-                    <!-- Menú desplegable de "Consola" -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="consolaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Consola
-                        </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
-                            <a class="dropdown-item" href="#">Agregar Consola</a>
-                            <a class="dropdown-item" href="#">Ver Consola</a>
-                            <a class="dropdown-item" href="#">Editar Consola</a>
-                        </div>
-                    </li>
-                    <!-- Menú desplegable de "Juego" -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="juegoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Juego
-                        </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
-                            <a class="dropdown-item" href="#">Agregar Juego</a>
-                            <a class="dropdown-item" href="#">Ver Juego</a>
-                            <a class="dropdown-item" href="#">Editar Juego</a>
-                        </div>
-                    </li>
-                    <!-- Menú desplegable de "Accesorio" -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="accesorioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Accesorio
-                        </a>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
-                            <a class="dropdown-item" href="accesoriosCrud.php">Agregar Accesorio</a>
-                            <a class="dropdown-item" href="#">Ver Accesorio</a>
-                            <a class="dropdown-item" href="#">Editar Accesorio</a>
-                        </div>
-                    </li>
-                </ul>
-                <?php endif; ?>
-            </div>
+    <ul class="navbar-nav">
+        <?php foreach ($menu as $item) { ?>
+            <li class="nav-item"><a class="nav-link" href="<?php echo $item["url"] ?>">
+                    <?php echo $item["name"] ?>
+                </a></li>
+        <?php } ?>
+        <?php if ($usuario_autenticado): ?>
+            <!-- Menú desplegable de "Consola" -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="consolaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Consola
+                </a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
+                    <a class="dropdown-item" href="consolasCrud.php">Administrar</a>
+                    
+                </div>
+            </li>
+            <!-- Menú desplegable de "Juego" -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="juegoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Juego
+                </a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
+                    <a class="dropdown-item" href="juegosCrud.php">Administrar</a>
+                    
+                </div>
+            </li>
+            <!-- Menú desplegable de "Accesorio" -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="accesorioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Accesorio
+                </a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
+                    <a class="dropdown-item" href="accesoriosCrud.php">Administrar</a>
+                    
+                </div>
+            </li>
+        <?php endif; ?>
+        <?php if ($usuario_autenticado): ?>
+    <!-- Menú desplegable de "Cerrar Sesión" -->
+    <li class="nav-item">
+        <form method="post" action="procesar_logout.php">
+            <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
+        </form>
+    </li>
+<?php endif; ?>
+    </ul>
+</div>
             <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">
                 <span id="themeIcon" class="fas fa-moon"></span>
             </button>
         </nav>
     </header>
+    
     <section>
         <h3 class="titulonosotros">Nuestra Historia</h3>
         <p class="historianosotros">Hace unos años, un grupo apasionado de entusiastas de los videojuegos decidió unir fuerzas para crear algo único: una tienda en línea especializada en productos inspirados en el famoso personaje de videojuegos, Bowser. Su amor por los juegos de la serie Super Mario Bros. y la fascinación por el icónico villano Bowser los llevaron a la idea de lanzar "Tienda Bowser".</p>
@@ -163,7 +169,7 @@ if(!empty($_SESSION['usuario_autenticado'])) {
         </div>
     </div>
     <br>
-    <footer>
+    <footer class="bg-dark text-white mt-5">
         <div class="container">
             <div class="col">
                 <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>

@@ -3,7 +3,7 @@ include("funciones.php");
 $menu = getMenu();
 $usuario_autenticado = false;
 session_start();
-print_r($_SESSION);
+
 if(!empty($_SESSION['usuario_autenticado'])) {
     $usuario_autenticado = true; 
   }
@@ -60,9 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     Consola
                 </a>
                 <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
-                    <a class="dropdown-item" href="consolasCrud.php">Agregar Consola</a>
-                    <a class="dropdown-item" href="#">Ver Consola</a>
-                    <a class="dropdown-item" href="#">Editar Consola</a>
+                    <a class="dropdown-item" href="consolasCrud.php">Administrar</a>
+                    
                 </div>
             </li>
             <!-- Menú desplegable de "Juego" -->
@@ -71,9 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     Juego
                 </a>
                 <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
-                    <a class="dropdown-item" href="juegosCrud.php">Agregar Juego</a>
-                    <a class="dropdown-item" href="#">Ver Juego</a>
-                    <a class="dropdown-item" href="#">Editar Juego</a>
+                    <a class="dropdown-item" href="juegosCrud.php">Administrar</a>
+                    
                 </div>
             </li>
             <!-- Menú desplegable de "Accesorio" -->
@@ -82,9 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     Accesorio
                 </a>
                 <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
-                    <a class="dropdown-item" href="accesoriosCrud.php">Agregar Accesorio</a>
-                    <a class="dropdown-item" href="#">Ver Accesorio</a>
-                    <a class="dropdown-item" href="#">Editar Accesorio</a>
+                    <a class="dropdown-item" href="accesoriosCrud.php">Administrar</a>
+                    
                 </div>
             </li>
         <?php endif; ?>
@@ -128,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </section>
-    <footer>
+    <footer class="bg-dark text-white mt-5">
         <div class="container">
             <div class="col">
                 <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>

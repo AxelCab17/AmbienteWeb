@@ -5,7 +5,7 @@ function Conecta()
 {
     $server = "localhost";
     $user = "root";
-    $password = "";
+    $password = "tigreenzo";
     $dataBase = "tiendabowser"; 
 
    

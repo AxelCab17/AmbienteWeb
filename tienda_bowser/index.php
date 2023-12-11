@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Menú desplegable de "Cerrar Sesión" -->
     <li class="nav-item">
         <form method="post" action="procesar_logout.php">
-            <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
+            <button type="submit" class="nav-link" name="cerrar_sesion">Cerrar Sesión</button>
         </form>
     </li>
 <?php endif; ?>
@@ -109,19 +109,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img src="./images/smm2.png">
                 <h3 class="colorletra">Super Mario Maker 2</h3>
                 <p class="colorletra">Nintendo Switch</p>
-                <p class="colorletra">Precio: 29,000</p>
+                <p class="colorletra">Precio: ₡29,000</p>
+            </div>
+            <div class="juego-item">
+                <img src="./images/spodermanps5.webp">
+                <h3 class="colorletra">Spiderman 2 </h3>
+                <p class="colorletra">PlayStation 5</p>
+                <p class="colorletra">Precio: ₡32,750</p>
+            </div>
+            <div class="juego-item">
+                <img src="./images/p5.jpg">
+                <h3 class="colorletra">Persona 5</h3>
+                <p class="colorletra">PlayStation 4</p>
+                <p class="colorletra">Precio: ₡16,200</p>
+            </div>
+        </div>
+    </section>
+    <section class="juego">
+        <h2>Nuestros accesorios</h2>
+        <div class="juego-grid">
+            <div class="juego-item">
+                <img src="./images/ps4char.jpg">
+                <h3 class="colorletra">Cargador de control para PS4</h3>
+                <p class="colorletra">PlayStation 4</p>
+                <p class="colorletra">Precio: ₡9,000</p>
             </div>
             <div class="juego-item">
                 <img src="./images/ps5 control.png">
                 <h3 class="colorletra">Control para PS5</h3>
                 <p class="colorletra">PlayStation 5</p>
-                <p class="colorletra">Precio: 37,250</p>
+                <p class="colorletra">Precio: ₡20,400</p>
             </div>
             <div class="juego-item">
-                <img src="./images/p5.png">
-                <h3 class="colorletra">Persona 5</h3>
+                <img src="./images/ps5grips.jpg">
+                <h3 class="colorletra">Grips para PS5</h3>
+                <p class="colorletra">PlayStation 5</p>
+                <p class="colorletra">Precio: ₡12,200</p>
+            </div>
+        </div>
+    </section>
+    <section class="juego">
+        <h2>Nuestras consolas</h2>
+        <div class="juego-grid">
+            <div class="juego-item">
+                <img src="./images/ps5.webp">
+                <h3 class="colorletra">Consola PS5 1TB</h3>
+                <p class="colorletra">PlayStation 5</p>
+                <p class="colorletra">Precio: ₡625,000</p>
+            </div>
+            <div class="juego-item">
+                <img src="./images/ps4.jpg">
+                <h3 class="colorletra">Consola PS4 500GB</h3>
                 <p class="colorletra">PlayStation 4</p>
-                <p class="colorletra">Precio: 16,200</p>
+                <p class="colorletra">Precio: ₡315,000</p>
+            </div>
+            <div class="juego-item">
+                <img src="./images/switch.webp">
+                <h3 class="colorletra">Consola Nintendo Switch OLED 64GB</h3>
+                <p class="colorletra">Nintendo Switch</p>
+                <p class="colorletra">Precio: ₡320,000</p>
             </div>
         </div>
     </section>

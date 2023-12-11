@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Menú desplegable de "Cerrar Sesión" -->
     <li class="nav-item">
         <form method="post" action="procesar_logout.php">
-            <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
+            <button type="submit" class="nav-link" name="cerrar_sesion">Cerrar Sesión</button>
         </form>
     </li>
 <?php endif; ?>

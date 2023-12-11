@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Menú desplegable de "Cerrar Sesión" -->
     <li class="nav-item">
         <form method="post" action="procesar_logout.php">
-            <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
+            <button type="submit" class="nav-link" name="cerrar_sesion">Cerrar Sesión</button>
         </form>
     </li>
 <?php endif; ?>
@@ -139,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </h2>
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <strong>Mi nonbre es Axel Noel Cabezas Cerda</strong> Vivo en Heredia San Francisco, Tengo 19 años, Mis pasatiempos es jugar voleibol, ir al gym, tocar guitarra y estudio Ingeniería en Sistemas
+                    <strong>Mi nombre es Axel Noel Cabezas Cerda</strong> Vivo en Heredia San Francisco, Tengo 19 años, Mis pasatiempos es jugar voleibol, ir al gym, tocar guitarra y estudio Ingeniería en Sistemas
                 </div>
             </div>
         </div>

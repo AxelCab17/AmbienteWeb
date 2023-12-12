@@ -5,13 +5,12 @@ $menu = getMenu();
 $usuario_autenticado = false;
 session_start();
 
-if(!empty($_SESSION['usuario_autenticado'])) {
-    $usuario_autenticado = true; 
-  }
-  
-  if($usuario_autenticado) {
-  
-  }
+if (!empty($_SESSION['usuario_autenticado'])) {
+    $usuario_autenticado = true;
+}
+
+if ($usuario_autenticado) {
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "Login/procesar_login.php";
 }
@@ -48,66 +47,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </button>
 
             <div class="menu collapse navbar-collapse ml-auto" id="navbarNav">
-    <ul class="navbar-nav">
-        <?php foreach ($menu as $item) { ?>
-            <li class="nav-item"><a class="nav-link" href="<?php echo $item["url"] ?>">
-                    <?php echo $item["name"] ?>
-                </a></li>
-        <?php } ?>
-        <?php if ($usuario_autenticado): ?>
-            <!-- Menú desplegable de "Consola" -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="consolaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Consola
-                </a>
-                <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
-                    <a class="dropdown-item" href="consolasCrud.php">Administrar</a>
-                    
-                </div>
-            </li>
-            <!-- Menú desplegable de "Juego" -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="juegoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Juego
-                </a>
-                <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
-                    <a class="dropdown-item" href="juegosCrud.php">Administrar</a>
-                    
-                </div>
-            </li>
-            <!-- Menú desplegable de "Accesorio" -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="accesorioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Accesorio
-                </a>
-                <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
-                    <a class="dropdown-item" href="accesoriosCrud.php">Administrar</a>
-                    
-                </div>
-            </li>
-        <?php endif; ?>
-        <?php if ($usuario_autenticado): ?>
-    <!-- Menú desplegable de "Cerrar Sesión" -->
-    <li class="nav-item">
-        <form method="post" action="procesar_logout.php">
-            <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
-        </form>
-    </li>
-<?php endif; ?>
-    </ul>
-</div>
+                <ul class="navbar-nav">
+                    <?php foreach ($menu as $item) { ?>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo $item["url"] ?>">
+                                <?php echo $item["name"] ?>
+                            </a></li>
+                    <?php } ?>
+                    <?php if ($usuario_autenticado) : ?>
+                        <!-- Menú desplegable de "Consola" -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="consolaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Consola
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
+                                <a class="dropdown-item" href="create_consola.php">Crear</a>
+                                <a class="dropdown-item" href="update_consola.php">Actualizar</a>
+                                <a class="dropdown-item" href="delete_consola.php">Eliminar</a>
+
+                            </div>
+                        </li>
+                        <!-- Menú desplegable de "Juego" -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="juegoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Juego
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
+                                <a class="dropdown-item" href="create_juego.php">Crear</a>
+                                <a class="dropdown-item" href="update_juego.php">Actualizar</a>
+                                <a class="dropdown-item" href="delete_juego.php">Eliminar</a>
+
+                            </div>
+                        </li>
+                        <!-- Menú desplegable de "Accesorio" -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="accesorioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Accesorio
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
+                                <a class="dropdown-item" href="create_accesorio.php">Crear</a>
+                                <a class="dropdown-item" href="update_accesorios.php">Actualizar</a>
+                                <a class="dropdown-item" href="delete_accesorio.php">Eliminar</a>
+
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                    <?php if ($usuario_autenticado) : ?>
+                        <!-- Menú desplegable de "Cerrar Sesión" -->
+                        <li class="nav-item">
+                            <form method="post" action="procesar_logout.php">
+                                <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
+                            </form>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
             <button id="themeChangeBtn" class="btn btn-light" onclick="toggleTheme()">
                 <span id="themeIcon" class="fas fa-moon"></span>
             </button>
         </nav>
     </header>
-    
+
     <div class="container mt-5">
         <?php include 'crudJuegos.php'; ?>
     </div>
 
 
-       
+
     <footer class="bg-dark text-white mt-5">
         <div class="container">
             <div class="col">
@@ -116,11 +121,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </footer>
     <script>
-            modoOscuro();
+        modoOscuro();
 
-            scrollSmooth();
+        scrollSmooth();
 
-            logoHover();
-        </script>
+        logoHover();
+    </script>
 </body>
+
 </html>

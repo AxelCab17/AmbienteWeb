@@ -1,5 +1,6 @@
 <?php
 include("funciones.php");
+include "sql/conexion.php";
 $menu = getMenu();
 $usuario_autenticado = false;
 session_start();
@@ -100,8 +101,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </button>
         </nav>
     </header>
+    
+    <div class="container mt-5">
+        <?php include 'crudAccesorios.php'; ?>
+    </div>
 
 
+       
     <footer class="bg-dark text-white mt-5">
         <div class="container">
             <div class="col">

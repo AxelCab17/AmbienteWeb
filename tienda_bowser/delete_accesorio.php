@@ -1,5 +1,6 @@
 <?php
 include("funciones.php");
+include "sql/conexion.php";
 $menu = getMenu();
 $usuario_autenticado = false;
 session_start();
@@ -100,14 +101,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </button>
         </nav>
     </header>
-    <footer class="bg-dark text-white mt-5">
+
+<div class="container mt-5">
+    <h1>Eliminar Accesorio</h1>
+
+    <form action="crudAccesorios.php" method="post">
+        <div class="form-group">
+            <label for="id_accesorio">ID del Accesorio a eliminar:</label>
+            <input type="number" class="form-control" name="id_accesorio" required>
+        </div>
+
+        <input type="hidden" name="delete_accesorio" value="true">
+        <button type="submit" class="btn btn-danger">Eliminar Accesorio</button>
+    </form>
+    </div>
+<footer class="bg-dark text-white mt-5">
         <div class="container">
             <div class="col">
                 <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-    </header>
     <script>
             modoOscuro();
 

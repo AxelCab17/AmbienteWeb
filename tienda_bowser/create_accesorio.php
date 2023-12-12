@@ -1,5 +1,6 @@
 <?php
 include("funciones.php");
+include "sql/conexion.php";
 $menu = getMenu();
 $usuario_autenticado = false;
 session_start();
@@ -100,12 +101,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </button>
         </nav>
     </header>
-    
+<body>
 
+<div class="container mt-5">
+    <h1>Crear Accesorio</h1>
 
+    <form action="crudAccesorios.php" method="post">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" required>
+        </div>
 
-       
-    <footer class="bg-dark text-white mt-5">
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="number" step="0.01" class="form-control" name="precio" required>
+        </div>
+
+        <div class="form-group">
+            <label for="existencias">Existencias:</label>
+            <input type="number" class="form-control" name="existencias" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ruta_imagen">Ruta de la Imagen:</label>
+            <input type="text" class="form-control" name="ruta_imagen">
+        </div>
+
+        <div class="form-group">
+            <label for="activo">Activo:</label>
+            <input type="checkbox" name="activo" value="1">
+        </div>
+
+        <input type="hidden" name="create_accesorio" value="true">
+        <button type="submit" class="btn btn-primary">Crear Accesorio</button>
+    </form>
+</div>
+<footer class="bg-dark text-white mt-5">
         <div class="container">
             <div class="col">
                 <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>

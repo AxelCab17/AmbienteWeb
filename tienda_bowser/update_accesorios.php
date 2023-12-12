@@ -1,5 +1,6 @@
 <?php
 include("funciones.php");
+include "sql/conexion.php";
 $menu = getMenu();
 $usuario_autenticado = false;
 session_start();
@@ -89,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Menú desplegable de "Cerrar Sesión" -->
     <li class="nav-item">
         <form method="post" action="procesar_logout.php">
-            <button type="submit" class="nav-link" name="cerrar_sesion">Cerrar Sesión</button>
+            <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
         </form>
     </li>
 <?php endif; ?>
@@ -100,8 +101,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </button>
         </nav>
     </header>
-       
+<body>
 
+<div class="container mt-5">
+    <h1>Actualizar Accesorio</h1>
+
+    <form action="crudAccesorios.php" method="post">
+        <div class="form-group">
+            <label for="id_accesorio">ID del Accesorio:</label>
+            <input type="number" class="form-control" name="id_accesorio" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="number" class="form-control" name="precio" required>
+        </div>
+
+        <div class="form-group">
+            <label for="existencias">Existencias:</label>
+            <input type="number" class="form-control" name="existencias" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ruta_imagen">Ruta de la Imagen:</label>
+            <input type="text" class="form-control" name="ruta_imagen"required>
+
+        <div class="form-group">
+            <label for="activo">Activo:</label>
+            <select class="form-control" name="activo" required>
+                <option value="1">Sí</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <input type="hidden" name="update_accesorio" value="true">
+        <button type="submit" class="btn btn-primary">Actualizar Accesorio</button>
+    </form>
     <footer class="bg-dark text-white mt-5">
         <div class="container">
             <div class="col">
@@ -109,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </footer>
-        <script>
+    <script>
             modoOscuro();
 
             scrollSmooth();

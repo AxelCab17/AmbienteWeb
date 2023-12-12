@@ -1,5 +1,6 @@
 <?php
 include("funciones.php");
+include "sql/conexion.php";
 $menu = getMenu();
 $usuario_autenticado = false;
 session_start();
@@ -89,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Menú desplegable de "Cerrar Sesión" -->
     <li class="nav-item">
         <form method="post" action="procesar_logout.php">
-            <button type="submit" class="nav-link" name="cerrar_sesion">Cerrar Sesión</button>
+            <button type="submit" class="btn btn-link" name="cerrar_sesion">Cerrar Sesión</button>
         </form>
     </li>
 <?php endif; ?>
@@ -101,20 +102,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </nav>
     </header>
 
+<div class="container mt-5">
+    <h1>Eliminar Juego</h1>
 
+    <form action="crudJuegos.php" method="post">
+        <div class="form-group">
+            <label for="id_juego">ID del Juego a eliminar:</label>
+            <input type="number" class="form-control" name="id_juego" required>
+        </div>
 
-
-
-
-    <footer class="bg-dark text-white mt-5">
+        <input type="hidden" name="delete" value="true">
+        <button type="submit" class="btn btn-danger">Eliminar Juego</button>
+    </form>
+    </div>
+<footer class="bg-dark text-white mt-5">
         <div class="container">
             <div class="col">
                 <p class="lead text-center">&COPY Tienda Bowser, Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-    </footer>
-    </header>
     <script>
             modoOscuro();
 

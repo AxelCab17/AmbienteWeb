@@ -28,31 +28,37 @@ $sql = "SELECT * FROM tiendabowser.accesorio";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "<h2>Listado de Accesorios</h2>";
-    echo "<table border='1'>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Existencias</th>
-                <th>Ruta Imagen</th>
-                <th>Activo</th>
-            </tr>";
+    echo "<div class='container mt-5'>
+            <h2 class='text-center text-white'>Listado de Accesorios</h2>
+            <table class='table table-bordered table-hover'>
+                <thead class='thead-light'>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Existencias</th>
+                        <th>Ruta Imagen</th>
+                        <th>Activo</th>
+                    </tr>
+                </thead>
+                <tbody>";
 
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td>" . $row["id_accesorio"] . "</td>
-                <td>" . $row["nombre"] . "</td>
-                <td>" . $row["precio"] . "</td>
-                <td>" . $row["existencias"] . "</td>
-                <td><img src='" . $row["ruta_imagen"] . "' alt='Imagen de la consola' style='max-width: 100px; max-height: 100px;'></td>
-                <td>" . ($row["activo"] == 1 ? 'Sí' : 'No') . "</td>
+                <td class='text-white'>" . $row["id_accesorio"] . "</td>
+                <td class='text-white'>" . $row["nombre"] . "</td>
+                <td class='text-white'>$" . $row["precio"] . "</td>
+                <td class='text-white'>" . $row["existencias"] . "</td>
+                <td><img src='" . $row["ruta_imagen"] . "' alt='Imagen del accesorio' class='img-thumbnail' style='max-width: 100px; max-height: 100px;'></td>
+                <td class='text-white'>" . ($row["activo"] == 1 ? 'Sí' : 'No') . "</td>
             </tr>";
     }
 
-    echo "</table>";
+    echo "</tbody>
+        </table>
+    </div>";
 } else {
-    echo "No hay accesorios en la base de datos.";
+    echo "<p class='text-center mt-5 text-white'>No hay accesorios en la base de datos.</p>";
 }
 
 Desconecta($conn);

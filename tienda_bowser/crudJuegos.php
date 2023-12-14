@@ -30,42 +30,37 @@ $sql = "SELECT * FROM tiendabowser.juego";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "<div class='container mt-5'>
-            <h2 class='text-center text-white'>Listado de Juegos</h2>
-            <table class='table table-bordered table-hover'>
-                <thead class='thead-light'>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Consola</th>
-                        <th>Precio</th>
-                        <th>Existencias</th>
-                        <th>Imagen</th>
-                        <th>Activo</th>
-                    </tr>
-                </thead>
-                <tbody>";
+    echo "<h2>Listado de Juegos</h2>";
+    echo "<table border='1'>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Consola</th>
+                <th>Precio</th>
+                <th>Existencias</th>
+                <th>Imagen</th>
+                <th>Activo</th>
+            </tr>";
 
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td class='text-white'>" . $row["id_juego"] . "</td>
-                <td class='text-white'>" . $row["nombre"] . "</td>
-                <td class='text-white'>" . $row["consola"] . "</td>
-                <td class='text-white'>$" . $row["precio"] . "</td>
-                <td class='text-white'>" . $row["existencias"] . "</td>
-                <td><img src='" . $row["ruta_imagen"] . "' alt='Imagen de la consola' class='img-thumbnail' style='max-width: 100px; max-height: 100px;'></td>
-                <td class='text-white'>" . ($row["activo"] == 1 ? 'Sí' : 'No') . "</td>
+                <td>" . $row["id_juego"] . "</td>
+                <td>" . $row["nombre"] . "</td>
+                <td>" . $row["consola"] . "</td>
+                <td>" . $row["precio"] . "</td>
+                <td>" . $row["existencias"] . "</td>
+                <td><img src='" . $row["ruta_imagen"] . "' alt='Imagen de la consola' style='max-width: 100px; max-height: 100px;'></td>
+                <td>" . ($row["activo"] == 1 ? 'Sí' : 'No') . "</td>
             </tr>";
     }
 
-    echo "</tbody>
-        </table>
-    </div>";
+    echo "</table>";
 } else {
-    echo "<p class='text-center mt-5 text-white'>No hay juegos en la base de datos.</p>";
+    echo "No hay juegos en la base de datos.";
 }
 
-Desconecta($conn);
+Desconecta($conn);  // Asegurarse de cerrar la conexión después de realizar todas las operaciones necesarias.
+
 
 // UPDATE
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update"])) {

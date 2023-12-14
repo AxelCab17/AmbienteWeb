@@ -92,8 +92,8 @@ body {
 }
 
 button {
-    background-color: rgb(148, 148, 148);
-    color: red;
+    background-color: rgb(148, 148, 148) !important;
+    color: red !important;
 }
 
 .titulonosotros{

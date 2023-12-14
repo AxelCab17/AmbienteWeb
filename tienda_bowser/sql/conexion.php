@@ -4,7 +4,7 @@ if (!function_exists('Conecta')) {
     {
         $server = "localhost";
         $user = "root";
-        $password = "tigreenzo";
+        $password = "";
         $dataBase = "tiendabowser"; 
 
         $conn = mysqli_connect($server, $user, $password, $dataBase);

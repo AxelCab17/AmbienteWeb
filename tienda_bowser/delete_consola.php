@@ -61,7 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     Consola
                 </a>
                 <div class="dropdown-menu bg-dark" aria-labelledby="consolaDropdown">
-                    <a class="dropdown-item" href="consolasCrud.php">Administrar</a>
+                    <a class="dropdown-item" href="create_consola.php">Crear</a>
+                    <a class="dropdown-item" href="update_consola.php">Actualizar</a>
+                    <a class="dropdown-item" href="delete_consola.php">Eliminar</a>
                     
                 </div>
             </li>
@@ -71,7 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     Juego
                 </a>
                 <div class="dropdown-menu bg-dark" aria-labelledby="juegoDropdown">
-                    <a class="dropdown-item" href="juegosCrud.php">Administrar</a>
+                    <a class="dropdown-item" href="create_juego.php">Crear</a>
+                    <a class="dropdown-item" href="update_juego.php">Actualizar</a>
+                    <a class="dropdown-item" href="delete_juego.php">Eliminar</a>
                     
                 </div>
             </li>
@@ -81,7 +85,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     Accesorio
                 </a>
                 <div class="dropdown-menu bg-dark" aria-labelledby="accesorioDropdown">
-                    <a class="dropdown-item" href="accesoriosCrud.php">Administrar</a>
+                    <a class="dropdown-item" href="create_accesorio.php">Crear</a>
+                    <a class="dropdown-item" href="update_accesorios.php">Actualizar</a>
+                    <a class="dropdown-item" href="delete_accesorio.php">Eliminar</a>
                     
                 </div>
             </li>

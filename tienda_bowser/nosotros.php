@@ -165,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </h2>
             <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                <strong>Mi nombre es Ronald Alejandro Mendoza Wong</strong> Vivo en San José Pavas, Tengo 22 años, Mis pasatiempos es ir al gym, escuchar música y los videojuegos y estudio Ingeniería en Sistemas
+                <strong>Mi nombre es Ronald Alejandro Mendoza Wong</strong> Vivo en San José Pavas, Tengo 23 años, Mis pasatiempos es ir al gym, escuchar música y los videojuegos y estudio Ingeniería en Sistemas
                 </div>
             </div>
         </div>

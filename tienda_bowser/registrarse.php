@@ -12,7 +12,6 @@ if(!empty($_SESSION['usuario_autenticado'])) {
   
   }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "RegistroUsuario/procesar_registro.php";
     include "Login/procesar_login.php";
 }
 ?>
